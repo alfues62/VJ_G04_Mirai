@@ -50,6 +50,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     public MovementState state;
     public enum MovementState
     {
+        idle,
         walking,
         sprinting,
         crouching,
@@ -77,14 +78,9 @@ public class PruebaMovimientoCapsula : MonoBehaviour
 
         // handle drag
         if (grounded)
-        {
             rb.drag = groundDrag;
-        }
         else
-        {
             rb.drag = 0;
-        }
-            
     }
 
     private void FixedUpdate()
@@ -123,6 +119,8 @@ public class PruebaMovimientoCapsula : MonoBehaviour
 
     private void StateHandler()
     {
+        
+
         // Mode - Crouching
         if (Input.GetKey(crouchKey))
         {
@@ -145,9 +143,15 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         }
 
         // Mode - Air
-        else
+        else if (!grounded)
         {
             state = MovementState.air;
+        }
+
+        // Mode - Idle
+        else
+        {
+            state = MovementState.idle;
         }
     }
 
@@ -232,3 +236,4 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
 }
+
