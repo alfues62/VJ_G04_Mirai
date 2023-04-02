@@ -20,7 +20,9 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
+    public int maxJumps;
     bool readyToJump;
+    public int jumpCount;
 
     [Header("Crouching")]
     public float crouchSpeed;
@@ -70,6 +72,8 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+        jumpCount = 0; // set jumpCount to 0 initially
+
 
         startYScale = transform.localScale.y;
     }
@@ -78,6 +82,11 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
+        if (grounded)
+        {
+            jumpCount = 0;
+        }
 
         MyInput();
         SpeedControl();
@@ -101,11 +110,13 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && (grounded || jumpCount < maxJumps))
         {
             readyToJump = false;
 
             Jump();
+
+            jumpCount++;
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
@@ -282,7 +293,6 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
-
         exitingSlope = false;
     }
 
