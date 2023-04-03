@@ -1030,7 +1030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467034654}
   - component: {fileID: 1467034653}
-  - component: {fileID: 1467034652}
+  - component: {fileID: 1467034655}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1038,36 +1038,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1467034652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1467034651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7909a05c90cea247b668c9083c2bd59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 7
-  sprintSpeed: 12
-  groundDrag: 5
-  jumpForce: 8
-  jumpCooldown: 0.5
-  airMultiplier: 0.5
-  crouchSpeed: 2
-  crouchYScale: 0.5
-  jumpKey: 32
-  sprintKey: 304
-  crouchKey: 306
-  playerHeight: 2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  maxSlopeAngle: 90
-  orientation: {fileID: 1642632895}
-  state: 0
 --- !u!54 &1467034653
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1101,6 +1071,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1467034655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467034651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7909a05c90cea247b668c9083c2bd59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 5
+  sprintSpeed: 5
+  groundDrag: 5
+  jumpForce: 5
+  jumpCooldown: 5
+  airMultiplier: 5
+  crouchSpeed: 5
+  crouchYScale: 0.5
+  jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  maxSlopeAngle: 0
+  orientation: {fileID: 1642632895}
+  state: 0
 --- !u!1 &1531408671
 GameObject:
   m_ObjectHideFlags: 3

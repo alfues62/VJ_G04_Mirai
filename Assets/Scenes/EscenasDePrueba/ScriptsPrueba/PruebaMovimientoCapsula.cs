@@ -143,15 +143,9 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         }
 
         // Mode - Air
-        else if (!grounded)
-        {
-            state = MovementState.air;
-        }
-
-        // Mode - Idle
         else
         {
-            state = MovementState.idle;
+            state = MovementState.air;
         }
     }
 
