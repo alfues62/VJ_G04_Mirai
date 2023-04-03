@@ -23,6 +23,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     public int maxJumps;
     bool readyToJump;
     public int jumpCount;
+    public float gravityVal;
 
     [Header("Crouching")]
     public float crouchSpeed;
@@ -249,6 +250,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         // in air
         else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            rb.AddForce(Vector3.down * gravityVal, ForceMode.Force);
 
         // turn gravity off while on slope
         rb.useGravity = !OnSlope();
