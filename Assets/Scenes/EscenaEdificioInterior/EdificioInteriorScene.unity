@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 9633276}
   - component: {fileID: 9633275}
   - component: {fileID: 9633274}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Container (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 68215078}
   - component: {fileID: 68215077}
   - component: {fileID: 68215076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared90 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 119826255}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ParedesPisoBajo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 150653088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RampadeEntrada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 159049415}
   - component: {fileID: 159049414}
   - component: {fileID: 159049413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 203829983}
   - component: {fileID: 203829982}
   - component: {fileID: 203829981}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 375648197}
   - component: {fileID: 375648196}
   - component: {fileID: 375648195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared90 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -753,7 +753,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391759982}
-  m_LocalRotation: {x: 0.14220114, y: 0.000000017031528, z: -0.0000000024467675, w: 0.9898378}
+  m_LocalRotation: {x: 0.14220114, y: -0.000000017072374, z: 0.0000000024526352, w: 0.9898378}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -999,7 +999,7 @@ GameObject:
   - component: {fileID: 548071677}
   - component: {fileID: 548071676}
   - component: {fileID: 548071675}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1320,7 +1320,7 @@ GameObject:
   - component: {fileID: 674147075}
   - component: {fileID: 674147074}
   - component: {fileID: 674147073}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared90 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1417,7 +1417,7 @@ GameObject:
   - component: {fileID: 757811501}
   - component: {fileID: 757811500}
   - component: {fileID: 757811499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1511,7 +1511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 859286964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MuchosContainers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1550,7 +1550,7 @@ GameObject:
   - component: {fileID: 967640626}
   - component: {fileID: 967640625}
   - component: {fileID: 967640624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared90
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1647,7 +1647,7 @@ GameObject:
   - component: {fileID: 986792408}
   - component: {fileID: 986792407}
   - component: {fileID: 986792406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pasarela
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1809,7 +1809,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076892966}
-  m_LocalRotation: {x: 0.14220117, y: 0.000000034063053, z: -0.0000000048935354, w: 0.98983777}
+  m_LocalRotation: {x: 0.14220117, y: -0.000000034083495, z: 0.000000004896472, w: 0.98983777}
   m_LocalPosition: {x: 0, y: 3, z: -18.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1862,6 +1862,7 @@ GameObject:
   - component: {fileID: 1158756460}
   - component: {fileID: 1158756459}
   - component: {fileID: 1158756458}
+  - component: {fileID: 1158756461}
   m_Layer: 0
   m_Name: TercCam
   m_TagString: Untagged
@@ -2008,6 +2009,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1158756461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158756457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 64
+  m_IgnoreTag: Player
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 0
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
 --- !u!1 &1259208468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,7 +2051,7 @@ GameObject:
   - component: {fileID: 1259208471}
   - component: {fileID: 1259208470}
   - component: {fileID: 1259208469}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2215,7 +2246,7 @@ GameObject:
   - component: {fileID: 1288657390}
   - component: {fileID: 1288657389}
   - component: {fileID: 1288657388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Container (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2309,7 +2340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1291668317}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PasarelaTotal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2346,7 +2377,7 @@ GameObject:
   - component: {fileID: 1313997353}
   - component: {fileID: 1313997352}
   - component: {fileID: 1313997351}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rampa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2443,7 +2474,7 @@ GameObject:
   - component: {fileID: 1352407897}
   - component: {fileID: 1352407896}
   - component: {fileID: 1352407895}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pasarela (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2747,7 +2778,7 @@ GameObject:
   - component: {fileID: 1518361611}
   - component: {fileID: 1518361610}
   - component: {fileID: 1518361609}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2971,7 +3002,7 @@ GameObject:
   - component: {fileID: 1550298199}
   - component: {fileID: 1550298198}
   - component: {fileID: 1550298197}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3068,7 +3099,7 @@ GameObject:
   - component: {fileID: 1551786382}
   - component: {fileID: 1551786381}
   - component: {fileID: 1551786380}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Container (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3165,7 +3196,7 @@ GameObject:
   - component: {fileID: 1576539047}
   - component: {fileID: 1576539046}
   - component: {fileID: 1576539045}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3262,7 +3293,7 @@ GameObject:
   - component: {fileID: 1631314741}
   - component: {fileID: 1631314740}
   - component: {fileID: 1631314739}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared90 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3447,7 +3478,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649991226}
-  m_LocalRotation: {x: 0.16018224, y: 0.000000004252742, z: -6.9012535e-10, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018227, y: -0.0000000015889531, z: 2.5785193e-10, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3468,7 +3499,7 @@ GameObject:
   - component: {fileID: 1687952913}
   - component: {fileID: 1687952912}
   - component: {fileID: 1687952911}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared90 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3565,7 +3596,7 @@ GameObject:
   - component: {fileID: 1691397578}
   - component: {fileID: 1691397577}
   - component: {fileID: 1691397576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Container (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3761,7 +3792,7 @@ GameObject:
   - component: {fileID: 1731230688}
   - component: {fileID: 1731230687}
   - component: {fileID: 1731230686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3855,7 +3886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1740840848}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Puertas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3893,7 +3924,7 @@ GameObject:
   - component: {fileID: 1747311804}
   - component: {fileID: 1747311803}
   - component: {fileID: 1747311802}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rampa (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4088,7 +4119,7 @@ GameObject:
   - component: {fileID: 1820887036}
   - component: {fileID: 1820887035}
   - component: {fileID: 1820887034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4185,7 +4216,7 @@ GameObject:
   - component: {fileID: 1859542239}
   - component: {fileID: 1859542238}
   - component: {fileID: 1859542237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pasarela (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4339,7 +4370,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976975436}
-  m_LocalRotation: {x: 0.124220625, y: -0.000000017598564, z: 0.0000000022031688, w: 0.9922547}
+  m_LocalRotation: {x: 0.124220625, y: -0.00000002414082, z: 0.0000000030221956, w: 0.9922547}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4360,7 +4391,7 @@ GameObject:
   - component: {fileID: 2022897811}
   - component: {fileID: 2022897810}
   - component: {fileID: 2022897809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4454,7 +4485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059299759}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cuarto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4492,7 +4523,7 @@ GameObject:
   - component: {fileID: 2088435178}
   - component: {fileID: 2088435177}
   - component: {fileID: 2088435176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4589,7 +4620,7 @@ GameObject:
   - component: {fileID: 2091018004}
   - component: {fileID: 2091018003}
   - component: {fileID: 2091018002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared90 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4686,7 +4717,7 @@ GameObject:
   - component: {fileID: 2145393342}
   - component: {fileID: 2145393341}
   - component: {fileID: 2145393340}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObjectPared90 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
