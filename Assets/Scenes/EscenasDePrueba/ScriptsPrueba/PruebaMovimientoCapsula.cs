@@ -173,39 +173,34 @@ public class PruebaMovimientoCapsula : MonoBehaviour
 
         // Mode - Air
         else
-
         {
             state = MovementState.air;
 
-            {
-                state = MovementState.air;
-
-                if (desiredMoveSpeed < sprintSpeed)
-                    desiredMoveSpeed = walkSpeed;
-                else
-                    desiredMoveSpeed = sprintSpeed;
-            }
-
-            bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
-            if (lastState == MovementState.dashing) keepMomentum = true;
-
-            if (desiredMoveSpeedHasChanged)
-            {
-                if (keepMomentum)
-                {
-                    StopAllCoroutines();
-                    StartCoroutine(SmoothlyLerpMoveSpeed());
-                }
-                else
-                {
-                    StopAllCoroutines();
-                    moveSpeed = desiredMoveSpeed;
-                }
-            }
-
-            lastDesiredMoveSpeed = desiredMoveSpeed;
-            lastState = state;
+            if (desiredMoveSpeed < sprintSpeed)
+                desiredMoveSpeed = walkSpeed;
+            else
+                desiredMoveSpeed = sprintSpeed;
         }
+
+        bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
+        if (lastState == MovementState.dashing) keepMomentum = true;
+
+        if (desiredMoveSpeedHasChanged)
+        {
+            if (keepMomentum)
+            {
+                StopAllCoroutines();
+                StartCoroutine(SmoothlyLerpMoveSpeed());
+            }
+            else
+            {
+                StopAllCoroutines();
+                moveSpeed = desiredMoveSpeed;
+            }
+        }
+
+        lastDesiredMoveSpeed = desiredMoveSpeed;
+        lastState = state;
     }
 
     private float speedChangeFactor;
@@ -225,7 +220,6 @@ public class PruebaMovimientoCapsula : MonoBehaviour
             time += Time.deltaTime * boostFactor;
 
             yield return null;
-
         }
 
         moveSpeed = desiredMoveSpeed;
@@ -256,7 +250,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         // in air
         else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-            rb.AddForce(Vector3.down * gravityVal, ForceMode.Force);
+        rb.AddForce(Vector3.down * gravityVal, ForceMode.Force);
 
         // turn gravity off while on slope
         rb.useGravity = !OnSlope();
@@ -321,4 +315,5 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     }
 
 }
+
 
