@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/EscenasDePrueba/PruebasDeMovimiento.unity
+    guid: 23b40397f5f41e44b8c000a7677ac5c9
+  - enabled: 1
+    path: Assets/Scenes/EscenasDePrueba/PruebasMovimientoAlex.unity
+    guid: a5bfdb56930edd740967f0756fff7c8d
   m_configObjects: {}
