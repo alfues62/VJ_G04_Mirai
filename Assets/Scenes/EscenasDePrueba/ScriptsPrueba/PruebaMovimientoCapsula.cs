@@ -173,34 +173,39 @@ public class PruebaMovimientoCapsula : MonoBehaviour
 
         // Mode - Air
         else
+
         {
             state = MovementState.air;
 
-            if (desiredMoveSpeed < sprintSpeed)
-                desiredMoveSpeed = walkSpeed;
-            else
-                desiredMoveSpeed = sprintSpeed;
-        }
-
-        bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
-        if (lastState == MovementState.dashing) keepMomentum = true;
-
-        if (desiredMoveSpeedHasChanged)
-        {
-            if (keepMomentum)
             {
-                StopAllCoroutines();
-                StartCoroutine(SmoothlyLerpMoveSpeed());
-            }
-            else
-            {
-                StopAllCoroutines();
-                moveSpeed = desiredMoveSpeed;
-            }
-        }
+                state = MovementState.air;
 
-        lastDesiredMoveSpeed = desiredMoveSpeed;
-        lastState = state;
+                if (desiredMoveSpeed < sprintSpeed)
+                    desiredMoveSpeed = walkSpeed;
+                else
+                    desiredMoveSpeed = sprintSpeed;
+            }
+
+            bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
+            if (lastState == MovementState.dashing) keepMomentum = true;
+
+            if (desiredMoveSpeedHasChanged)
+            {
+                if (keepMomentum)
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(SmoothlyLerpMoveSpeed());
+                }
+                else
+                {
+                    StopAllCoroutines();
+                    moveSpeed = desiredMoveSpeed;
+                }
+            }
+
+            lastDesiredMoveSpeed = desiredMoveSpeed;
+            lastState = state;
+        }
     }
 
     private float speedChangeFactor;
@@ -220,6 +225,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
             time += Time.deltaTime * boostFactor;
 
             yield return null;
+
         }
 
         moveSpeed = desiredMoveSpeed;
