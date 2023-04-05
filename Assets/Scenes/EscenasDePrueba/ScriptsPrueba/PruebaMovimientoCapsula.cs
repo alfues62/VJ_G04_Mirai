@@ -250,7 +250,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         // in air
         else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-            rb.AddForce(Vector3.down * gravityVal, ForceMode.Force);
+        rb.AddForce(Vector3.down * gravityVal, ForceMode.Force);
 
         // turn gravity off while on slope
         rb.useGravity = !OnSlope();
@@ -315,4 +315,5 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     }
 
 }
+
 
