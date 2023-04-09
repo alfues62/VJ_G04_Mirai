@@ -123,10 +123,10 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         }
 
         // start crouch
-        if (Input.GetKeyDown(crouchKey))
+        if (Input.GetKeyDown(crouchKey) && grounded)
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+            rb.AddForce(Vector3.down * (gravityVal * 2f), ForceMode.Impulse);
         }
 
         // stop crouch
@@ -151,7 +151,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         }
 
         // Mode - Crouching
-        else if (Input.GetKey(crouchKey))
+        else if (Input.GetKey(crouchKey) && grounded)
         {
             state = MovementState.crouching;
             desiredMoveSpeed = crouchSpeed;
@@ -249,8 +249,11 @@ public class PruebaMovimientoCapsula : MonoBehaviour
 
         // in air
         else if (!grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-        rb.AddForce(Vector3.down * gravityVal, ForceMode.Force);
+            rb.AddForce(Vector3.down * gravityVal, ForceMode.Force);
+        }
+
 
         // turn gravity off while on slope
         rb.useGravity = !OnSlope();
@@ -304,6 +307,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
+
         }
 
         return false;
