@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class PruebaMovimientoCapsula : MonoBehaviour
 {
+    [Header("References")]
+    public Transform orientation;
+    Rigidbody rb;
+    public Transform player;
+    public Transform playerObj;
+
     [Header("Movement")]
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
-
     public float dashSpeed;
     public float dashSpeedChangeFactor;
-
     public float maxYSpeed;
-
     public float groundDrag;
+    public float rotationSpeed;
 
     [Header("Jumping")]
     public float jumpForce;
@@ -46,14 +50,10 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     private bool exitingSlope;
 
 
-    public Transform orientation;
-
     float horizontalInput;
     float verticalInput;
 
     Vector3 moveDirection;
-
-    Rigidbody rb;
 
     public MovementState state;
     public enum MovementState
@@ -81,6 +81,12 @@ public class PruebaMovimientoCapsula : MonoBehaviour
 
     private void Update()
     {
+        Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        if (inputDir != Vector3.zero)
+        {
+            playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+        }
+
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
