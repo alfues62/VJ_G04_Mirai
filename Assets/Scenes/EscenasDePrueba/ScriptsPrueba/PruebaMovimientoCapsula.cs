@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class PruebaMovimientoCapsula : MonoBehaviour
 {
+    [Header("References")]
+    public Transform orientation;
+    Rigidbody rb;
+    public Transform player;
+    public Transform playerObj;
+
     [Header("Movement")]
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
-
     public float dashSpeed;
     public float dashSpeedChangeFactor;
-
     public float maxYSpeed;
-
     public float groundDrag;
+    public float rotationSpeed;
 
     [Header("Jumping")]
     public float jumpForce;
@@ -46,14 +50,10 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     private bool exitingSlope;
 
 
-    public Transform orientation;
-
     float horizontalInput;
     float verticalInput;
 
     Vector3 moveDirection;
-
-    Rigidbody rb;
 
     public MovementState state;
     public enum MovementState
@@ -81,6 +81,12 @@ public class PruebaMovimientoCapsula : MonoBehaviour
 
     private void Update()
     {
+        Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        if (inputDir != Vector3.zero)
+        {
+            playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+        }
+
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
@@ -123,10 +129,10 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         }
 
         // start crouch
-        if (Input.GetKeyDown(crouchKey))
+        if (Input.GetKeyDown(crouchKey) && grounded)
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+            rb.AddForce(Vector3.down * (gravityVal * 2f), ForceMode.Impulse);
         }
 
         // stop crouch
@@ -151,7 +157,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         }
 
         // Mode - Crouching
-        else if (Input.GetKey(crouchKey))
+        else if (Input.GetKey(crouchKey) && grounded)
         {
             state = MovementState.crouching;
             desiredMoveSpeed = crouchSpeed;
@@ -249,8 +255,11 @@ public class PruebaMovimientoCapsula : MonoBehaviour
 
         // in air
         else if (!grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-        rb.AddForce(Vector3.down * gravityVal, ForceMode.Force);
+            rb.AddForce(Vector3.down * gravityVal, ForceMode.Force);
+        }
+
 
         // turn gravity off while on slope
         rb.useGravity = !OnSlope();
@@ -304,6 +313,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
+
         }
 
         return false;
