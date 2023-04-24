@@ -81,11 +81,12 @@ public class PruebaMovimientoCapsula : MonoBehaviour
 
     private void Update()
     {
+        /*
         Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
         if (inputDir != Vector3.zero)
         {
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
-        }
+        }*/
 
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
@@ -117,7 +118,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump && (grounded || jumpCount < maxJumps))
+        if (Input.GetKeyDown(jumpKey) && readyToJump && (grounded || jumpCount < maxJumps))
         {
             readyToJump = false;
 
