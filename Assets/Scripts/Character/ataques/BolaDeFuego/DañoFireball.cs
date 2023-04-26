@@ -32,4 +32,16 @@ public class DañoFireball : MonoBehaviour
         Destroy(gameObject, 3f);
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            VidaEnemigos vidaEnemigo = other.GetComponent<VidaEnemigos>();
+            if (vidaEnemigo != null)
+            {
+                vidaEnemigo.vida -= damage; // Restar 10 de vida al enemigo
+            }
+        }
+    }
 }

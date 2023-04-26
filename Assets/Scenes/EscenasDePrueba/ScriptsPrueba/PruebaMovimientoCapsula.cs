@@ -28,6 +28,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     bool readyToJump;
     public int jumpCount;
     public float gravityVal;
+    public bool isJumping;
 
     [Header("Crouching")]
     public float crouchSpeed;
@@ -42,7 +43,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    bool grounded;
+    public bool grounded;
 
     [Header("Slope Handling")]
     public float maxSlopeAngle;
@@ -123,6 +124,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
             readyToJump = false;
 
             Jump();
+            
 
             jumpCount++;
 
@@ -176,11 +178,13 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         {
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
+            isJumping = false;
         }
 
         // Mode - Air
         else
         {
+            isJumping = true;
             state = MovementState.air;
 
             if (desiredMoveSpeed < sprintSpeed)
