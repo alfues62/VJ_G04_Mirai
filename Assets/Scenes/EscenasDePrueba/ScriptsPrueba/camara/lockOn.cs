@@ -18,18 +18,22 @@ public class lockOn : MonoBehaviour
     [SerializeField] private float minDistance; // minimum distance to stop rotation if you get close to target
     [SerializeField] private float maxDistance;
 
+    private GameObject[] targets;
+
     public bool isTargeting;
 
     private float maxAngle;
     private Transform currentTarget;
     private float mouseX;
     private float mouseY;
+    [SerializeField] private int targetIndex;
 
     void Start()
     {
         maxAngle = 90f; // always 90 to target enemies in front of camera.
         cinemachineFreeLook.m_XAxis.m_InputAxisName = "";
         cinemachineFreeLook.m_YAxis.m_InputAxisName = "";
+        targetIndex = -1;
     }
 
     void Update()
@@ -41,7 +45,19 @@ public class lockOn : MonoBehaviour
         }
         else
         {
-            NewInputTarget(currentTarget);
+            if (Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(KeyCode.P))
+            {
+                GameObject newTarget = ClosestTarget();
+                if (newTarget != null)
+                {
+                    currentTarget = newTarget.transform;
+                    targetIndex = -1;
+                }
+            }
+            else
+            {
+                NewInputTarget(currentTarget);
+            }
         }
 
         if (aimIcon)
@@ -72,7 +88,7 @@ public class lockOn : MonoBehaviour
         }
     }
 
-    private void NewInputTarget(Transform target) // sets new input value.
+    private void NewInputTarget(Transform target)
     {
         if (!currentTarget) return;
 
@@ -81,21 +97,29 @@ public class lockOn : MonoBehaviour
         if (aimIcon)
             aimIcon.transform.position = mainCamera.WorldToScreenPoint(target.position);
 
-        if ((target.position - transform.position).magnitude < minDistance) return;
-        mouseX = (viewPos.x - 0.5f + targetLockOffset.x) * 3f;              // you can change the [ 3f ] value to make it faster or  slower
-        mouseY = (viewPos.y - 0.5f + targetLockOffset.y) * 3f;              // don't use delta time here.
+        float distanceToTarget = (target.position - transform.position).magnitude;
+        if (distanceToTarget > maxDistance) // Si el jugador está demasiado lejos o demasiado cerca, no se fija.
+        {
+            isTargeting = false;
+            currentTarget = null;
+            return;
+        }
+
+        mouseX = (viewPos.x - 0.5f + targetLockOffset.x) * 3f;
+        mouseY = (viewPos.y - 0.5f + targetLockOffset.y) * 3f;
     }
 
 
-    private GameObject ClosestTarget() // this is modified func from unity Docs ( Gets Closest Object with Tag ). 
+
+    private GameObject ClosestTarget()
     {
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag(enemyTag);
+        Debug.Log("Finding closest target...");
+        targets = GameObject.FindGameObjectsWithTag(enemyTag);
         GameObject closest = null;
         float distance = maxDistance;
         float currAngle = maxAngle;
         Vector3 position = transform.position;
-        foreach (GameObject go in gos)
+        foreach (GameObject go in targets)
         {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.magnitude;
@@ -111,6 +135,7 @@ public class lockOn : MonoBehaviour
                 }
             }
         }
+        Debug.Log("Closest target: " + closest + " Distance: " + distance + " Angle: " + currAngle);
         return closest;
     }
 
