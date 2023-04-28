@@ -25,6 +25,10 @@ public class AttackHandler : MonoBehaviour
         {
             dm.damage = jumpDamage;
         }
+        else if(pm.isSprinting == true)
+        {
+            dm.damage = chargeDamage;
+        }
         else
         {
             dm.damage = groundDamage;

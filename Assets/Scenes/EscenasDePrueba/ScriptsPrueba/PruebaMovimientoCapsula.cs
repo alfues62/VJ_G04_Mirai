@@ -19,6 +19,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     public float maxYSpeed;
     public float groundDrag;
     public float rotationSpeed;
+    public bool isSprinting;
 
     [Header("Jumping")]
     public float jumpForce;
@@ -172,6 +173,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
         {
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
+            isSprinting = true;
         }
 
         // Mode - Walking
@@ -180,6 +182,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
             isJumping = false;
+            isSprinting = false;
         }
 
         // Mode - Air
