@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class DamagesMelee : MonoBehaviour
 {
+    public Transform hitboxEspada;
+    public float damage;
 
-    private void Start()
-    {
-
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +15,7 @@ public class DamagesMelee : MonoBehaviour
             VidaEnemigos vidaEnemigo = other.GetComponent<VidaEnemigos>();
             if (vidaEnemigo != null)
             {
-                vidaEnemigo.vida -= 50f; // Restar 10 de vida al enemigo
+                vidaEnemigo.vida -= damage; // Restar vida al enemigo
             }
         }
     }

@@ -149,6 +149,7 @@ public class PruebaMovimientoCapsula : MonoBehaviour
     private float lastDesiredMoveSpeed;
     private MovementState lastState;
     private bool keepMomentum;
+
     private void StateHandler()
     {
         // Mode - Dashing
