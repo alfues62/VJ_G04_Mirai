@@ -8,6 +8,7 @@ TagManager:
   - PlayerBullet
   - Espada
   - EnemyBullet
+  - Key
   layers:
   - Default
   - TransparentFX
