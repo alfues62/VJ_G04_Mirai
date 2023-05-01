@@ -38,6 +38,13 @@ public class lockOn : MonoBehaviour
 
     void Update()
     {
+        if (currentTarget == null) // Comprobar si el objetivo actual todavía existe
+        {
+            isTargeting = false;
+            currentTarget = null;
+            targetIndex = -1;
+        }
+
         if (!isTargeting)
         {
             mouseX = Input.GetAxis("Mouse X");

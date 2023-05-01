@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UsarRecogidoScript : MonoBehaviour
 {
+    [Header("References")]
     public bool hasPicked;
 
     void Start()

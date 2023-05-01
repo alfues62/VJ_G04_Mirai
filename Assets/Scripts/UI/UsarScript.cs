@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UsarScript : MonoBehaviour
 {
+    [Header("References")]
     public GameObject recogerTexto;
 
     public KeyCode interactKey = KeyCode.F; // Tecla para interactuar

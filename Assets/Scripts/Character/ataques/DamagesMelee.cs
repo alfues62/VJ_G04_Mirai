@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamagesMelee : MonoBehaviour
 {
-    public Transform hitboxEspada;
+    [Header("References")]
     public float damage;
 
 
