@@ -19,6 +19,7 @@ public class lockOn : MonoBehaviour
     [SerializeField] private float maxDistance;
 
     private GameObject[] targets;
+    public GameObject target;
 
     public bool isTargeting;
 
@@ -38,7 +39,7 @@ public class lockOn : MonoBehaviour
 
     void Update()
     {
-        if (currentTarget == null) // Comprobar si el objetivo actual todavía existe
+        if (currentTarget == null)
         {
             isTargeting = false;
             currentTarget = null;
@@ -65,6 +66,16 @@ public class lockOn : MonoBehaviour
             {
                 NewInputTarget(currentTarget);
             }
+
+            // Si hay un objetivo actual, haz que el personaje mire hacia él
+            if (currentTarget != null)
+            {
+                transform.LookAt(currentTarget);
+            }
+
+            // Agregar esta línea para suavizar la rotación de la cámara
+            cinemachineFreeLook.m_YAxis.m_MaxSpeed = 5f;
+            cinemachineFreeLook.m_XAxis.m_MaxSpeed = 200f;
         }
 
         if (aimIcon)
@@ -85,13 +96,16 @@ public class lockOn : MonoBehaviour
         {
             isTargeting = false;
             currentTarget = null;
+            target = null; // Añade esta línea para desasignar el target actual
             return;
         }
 
-        if (ClosestTarget())
+        GameObject closestTarget = ClosestTarget();
+        if (closestTarget != null)
         {
-            currentTarget = ClosestTarget().transform;
+            currentTarget = closestTarget.transform;
             isTargeting = true;
+            target = closestTarget; // Añade esta línea para asignar el nuevo target
         }
     }
 
@@ -109,11 +123,14 @@ public class lockOn : MonoBehaviour
         {
             isTargeting = false;
             currentTarget = null;
+            target = null; // Añade esta línea para desasignar el target actual
             return;
         }
 
         mouseX = (viewPos.x - 0.5f + targetLockOffset.x) * 3f;
         mouseY = (viewPos.y - 0.5f + targetLockOffset.y) * 3f;
+
+        currentTarget = target.transform;
     }
 
 
