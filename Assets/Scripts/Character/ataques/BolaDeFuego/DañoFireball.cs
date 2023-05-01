@@ -27,9 +27,8 @@ public class DañoFireball : MonoBehaviour
         rb.isKinematic = true;
 
         // make sure projectile moves with target
-        transform.SetParent(collision.transform);
 
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 10f);
 
     }
 

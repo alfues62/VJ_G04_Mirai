@@ -11,7 +11,7 @@ public class DispararKunai : MonoBehaviour
     public float shotRate = 0.5f;
 
     private float shotRateTime;
-    private int balasRestantes = 10;
+    public int balasRestantes = 10;
     
 
     void Start()
