@@ -9,6 +9,8 @@ public class CambiarMunicion : MonoBehaviour
     private BombaHumo bombaHumo;
     private LanzarFireball lanzarFireball;
 
+    private AmmoDisplay ad;
+
     public int ammo;
 
     void Start()
@@ -30,7 +32,8 @@ public class CambiarMunicion : MonoBehaviour
             lanzarFireball.enabled = false;
             // activar el nuevo script para cambiar la munición que se dispara
             dispararShuriken.enabled = true;
-            
+
+
         }
         else if (Input.GetKeyDown(KeyCode.N)) // si se pulsa la tecla 'n'
         {
@@ -40,7 +43,7 @@ public class CambiarMunicion : MonoBehaviour
             lanzarFireball.enabled = false;
             // activar el nuevo script para cambiar la munición que se dispara
             dispararKunai.enabled = true;
-            ammo = dispararKunai.balasRestantes;
+            ad.ammoCount = dispararKunai.balasRestantes;
         }
         else if (Input.GetKeyDown(KeyCode.L)) // si se pulsa la tecla 'l'
         {
@@ -60,7 +63,7 @@ public class CambiarMunicion : MonoBehaviour
             bombaHumo.enabled = false;
             // activar el nuevo script para cambiar la munición que se dispara
             lanzarFireball.enabled = true;
-            ammo = lanzarFireball.totalThrows;
+            ad.ammoCount = lanzarFireball.totalThrows;
         }
     }
 }

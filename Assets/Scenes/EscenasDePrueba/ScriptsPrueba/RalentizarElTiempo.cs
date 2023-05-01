@@ -17,7 +17,7 @@ public class RalentizarElTiempo : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && !isSlowingDown) // Si se presiona la tecla R y no se está ralentizando
+        if (Input.GetKeyDown(KeyCode.Z) && !isSlowingDown) // Si se presiona la tecla R y no se está ralentizando
         {
             StartCoroutine(SlowDownTime()); // Empieza la corrutina de ralentización
         }
