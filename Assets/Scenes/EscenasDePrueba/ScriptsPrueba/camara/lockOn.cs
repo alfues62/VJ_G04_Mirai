@@ -70,7 +70,9 @@ public class lockOn : MonoBehaviour
             // Si hay un objetivo actual, haz que el personaje mire hacia él
             if (currentTarget != null)
             {
-                transform.LookAt(currentTarget);
+                Vector3 targetPos = currentTarget.position;
+                targetPos.y = transform.position.y; // mantén la misma altura del jugador
+                transform.rotation = Quaternion.LookRotation(targetPos - transform.position);
             }
 
             // Agregar esta línea para suavizar la rotación de la cámara

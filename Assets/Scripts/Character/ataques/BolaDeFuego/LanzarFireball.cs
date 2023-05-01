@@ -50,6 +50,7 @@ public class LanzarFireball : MonoBehaviour
 
         if (Physics.Raycast(cam.position, cam.forward, out hit, 500f))
         {
+            // update the direction to the hit point
             forceDirection = (hit.point - attackPoint.position).normalized;
         }
 
