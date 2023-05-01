@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 50
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1384,7 +1384,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385000724}
-  m_LocalRotation: {x: 0.14220114, y: -0.000000017031526, z: 0.0000000024467672, w: 0.9898378}
+  m_LocalRotation: {x: 0.13714316, y: 0.000000014760365, z: -0.0000000020435926, w: 0.99055123}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4145,7 +4145,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2055307111}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 50
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -5218,7 +5218,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 50
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -5243,7 +5243,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112670597}
-  m_LocalRotation: {x: 0.14220117, y: -0.000000034063053, z: 0.0000000048935354, w: 0.98983777}
+  m_LocalRotation: {x: 0.1371432, y: 0.000000014760366, z: -0.0000000020435929, w: 0.9905513}
   m_LocalPosition: {x: 0, y: 3, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6015,7 +6015,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 50
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -6039,11 +6039,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252332890}
-<<<<<<< HEAD
-  m_LocalRotation: {x: 0.124220625, y: -0.000000017598564, z: 0.0000000022031688, w: 0.9922547}
-=======
-  m_LocalRotation: {x: 0.124220625, y: 0.000000017598554, z: -0.0000000022031676, w: 0.9922547}
->>>>>>> alberto
+  m_LocalRotation: {x: 0.11412975, y: -7.4e-44, z: 1.1e-44, w: 0.9934659}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6906,7 +6902,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 50
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -6930,11 +6926,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398578355}
-<<<<<<< HEAD
-  m_LocalRotation: {x: 0.16018224, y: -0.000000016984202, z: 0.0000000027561569, w: 0.9870875}
-=======
-  m_LocalRotation: {x: 0.16018224, y: 0.000000016984202, z: -0.0000000027561569, w: 0.9870875}
->>>>>>> alberto
+  m_LocalRotation: {x: 0.16018222, y: -0.000000029417503, z: 0.0000000047738027, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9693,12 +9685,14 @@ MonoBehaviour:
   maxYSpeed: 0
   groundDrag: 8
   rotationSpeed: 7
+  isSprinting: 0
   jumpForce: 12
   jumpCooldown: 0.25
   airMultiplier: 0.15
   maxJumps: 1
   jumpCount: 0
   gravityVal: 18
+  isJumping: 0
   crouchSpeed: 3.5
   crouchYScale: 0.5
   jumpKey: 32
@@ -9708,6 +9702,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  grounded: 0
   maxSlopeAngle: 45
   state: 0
   dashing: 0
