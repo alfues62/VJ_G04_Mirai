@@ -6,6 +6,7 @@ public class DesacticvarScript : MonoBehaviour
 {
     [Header("References")]
     public GameObject recogerTexto;
+    public GameObject cosaPlayer;
 
     public KeyCode interactKey = KeyCode.F; // Tecla para interactuar
     private bool canInteract = false; // Variable para controlar si se puede interactuar
@@ -58,6 +59,7 @@ public class DesacticvarScript : MonoBehaviour
 
         if(hasInteracted == true)
         {
+            cosaPlayer.SetActive(false);
             recogerTexto.SetActive(false);
         }
     }

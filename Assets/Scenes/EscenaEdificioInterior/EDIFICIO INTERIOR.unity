@@ -2964,7 +2964,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391759982}
-  m_LocalRotation: {x: 0.13714318, y: -1.6784381e-17, z: -2.1570594e-17, w: 0.99055123}
+  m_LocalRotation: {x: 0.13714316, y: 0.000000014760365, z: -0.0000000020435926, w: 0.99055123}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8318,7 +8318,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076892966}
-  m_LocalRotation: {x: 0.13714321, y: -0.000000014760366, z: 0.0000000020435933, w: 0.9905513}
+  m_LocalRotation: {x: 0.1371432, y: 0.000000014760366, z: -0.0000000020435929, w: 0.9905513}
   m_LocalPosition: {x: 0, y: 3, z: -18.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9285,7 +9285,7 @@ Transform:
   - {fileID: 391759984}
   - {fileID: 1976975438}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1158756461
 MonoBehaviour:
@@ -10374,7 +10374,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1469213465}
     m_Modifications:
     - target: {fileID: 1376912833564620893, guid: de5b7fbcbd6a31a49b0af461f611ef18, type: 3}
       propertyPath: m_Name
@@ -10382,19 +10382,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5342447768391239730, guid: de5b7fbcbd6a31a49b0af461f611ef18, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5342447768391239730, guid: de5b7fbcbd6a31a49b0af461f611ef18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -51
+      value: -52.598938
       objectReference: {fileID: 0}
     - target: {fileID: 5342447768391239730, guid: de5b7fbcbd6a31a49b0af461f611ef18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 41.44
+      value: 39.969307
       objectReference: {fileID: 0}
     - target: {fileID: 5342447768391239730, guid: de5b7fbcbd6a31a49b0af461f611ef18, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 38.3
+      value: 25.244549
       objectReference: {fileID: 0}
     - target: {fileID: 5342447768391239730, guid: de5b7fbcbd6a31a49b0af461f611ef18, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10402,15 +10402,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5342447768391239730, guid: de5b7fbcbd6a31a49b0af461f611ef18, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5342447768391239730, guid: de5b7fbcbd6a31a49b0af461f611ef18, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5342447768391239730, guid: de5b7fbcbd6a31a49b0af461f611ef18, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5342447768391239730, guid: de5b7fbcbd6a31a49b0af461f611ef18, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11884,7 +11884,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1449621501
 GameObject:
@@ -12134,7 +12134,7 @@ Transform:
   - {fileID: 1367526088}
   - {fileID: 203207405}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1467034656
 MonoBehaviour:
@@ -12158,12 +12158,14 @@ MonoBehaviour:
   maxYSpeed: 0
   groundDrag: 5
   rotationSpeed: 7
+  isSprinting: 0
   jumpForce: 10
   jumpCooldown: 0.25
   airMultiplier: 0.15
   maxJumps: 1
   jumpCount: 0
   gravityVal: 20
+  isJumping: 0
   crouchSpeed: 3.5
   crouchYScale: 0.5
   jumpKey: 32
@@ -12173,6 +12175,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 2147483647
+  grounded: 0
   maxSlopeAngle: 90
   state: 0
   dashing: 0
@@ -12279,8 +12282,9 @@ Transform:
   - {fileID: 788934485}
   - {fileID: 303191457}
   - {fileID: 1287172748}
+  - {fileID: 1301808907}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485806541
 GameObject:
@@ -14324,7 +14328,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649991226}
-  m_LocalRotation: {x: 0.16018224, y: -0.0000000042527493, z: 6.901262e-10, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018225, y: 0.000000023309845, z: -0.000000003782667, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
