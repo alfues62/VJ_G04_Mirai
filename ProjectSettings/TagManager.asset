@@ -6,9 +6,13 @@ TagManager:
   tags:
   - Enemy
   - PlayerBullet
+<<<<<<< HEAD
   - Espada
   - EnemyBullet
   - Key
+=======
+  - EnemyBullet
+>>>>>>> alberto
   layers:
   - Default
   - TransparentFX
@@ -17,10 +21,16 @@ TagManager:
   - Water
   - UI
   - Ground
+  - Player
   - 
+<<<<<<< HEAD
   - Player
   - 
   - 
+=======
+  - 
+  - Obstaculo
+>>>>>>> alberto
   - 
   - 
   - 
