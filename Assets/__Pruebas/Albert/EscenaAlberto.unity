@@ -5053,7 +5053,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112670597}
-  m_LocalRotation: {x: 0.1413162, y: 0.1102577, z: -0.015839739, w: 0.98367786}
+  m_LocalRotation: {x: 0.1413162, y: 0.11025777, z: -0.015839748, w: 0.98367786}
   m_LocalPosition: {x: -1.0579972, y: 2.9999995, z: -7.94177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9237,11 +9237,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228662175691661706, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 5.23876
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7228662175691661706, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -3.875397
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7228662175691661815, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_Layer
@@ -9253,11 +9253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228662175879138302, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 5.23876
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7228662175879138302, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -3.875397
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7228662175883447952, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_Height
@@ -9305,11 +9305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228662176118946787, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.1102577
+      value: 0.110257745
       objectReference: {fileID: 0}
     - target: {fileID: 7228662176118946787, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.015839735
+      value: -0.015839739
       objectReference: {fileID: 0}
     - target: {fileID: 7228662176255473392, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_Enabled
@@ -9317,7 +9317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228662176255473392, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: whatIsGround.m_Bits
-      value: 192
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 7228662176255473405, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_Interpolate
@@ -9437,11 +9437,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228662177139337339, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 5.23876
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7228662177139337339, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -3.875397
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7300557344148039576, guid: b2284c61bd9b27144be9e387d25df1be, type: 3}
       propertyPath: m_IsActive
