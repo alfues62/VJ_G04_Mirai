@@ -37,7 +37,7 @@ public class DispararKunai : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemigo"))
         {
             VidaEnemigos vidaEnemigo = collision.gameObject.GetComponent<VidaEnemigos>();
             if (vidaEnemigo != null)

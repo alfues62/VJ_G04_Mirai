@@ -9,6 +9,7 @@ TagManager:
   - Key
   - Espada
   - Enemy
+  - Enemigo
   layers:
   - Default
   - TransparentFX

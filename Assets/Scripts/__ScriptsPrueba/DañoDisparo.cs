@@ -13,7 +13,7 @@ public class DañoDisparo : MonoBehaviour
 
     void Start()
     {
-        vida = GameObject.FindWithTag("Enemy").GetComponent<VidaEnemigos>();
+        vida = GameObject.FindWithTag("Enemigo").GetComponent<VidaEnemigos>();
     }
   
 

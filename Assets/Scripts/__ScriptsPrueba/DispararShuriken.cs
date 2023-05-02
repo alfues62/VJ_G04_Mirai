@@ -38,7 +38,7 @@ public class DispararShuriken : MonoBehaviour
     void Update()
     
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             if (Time.time > shotRateTime)
             {
