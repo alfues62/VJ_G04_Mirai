@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/EscenaCeldas/CeldasScene.unity
-    guid: 4efa5b6abebb81147a450f2a108d7a4b
-  - enabled: 1
     path: Assets/Scenes/EscenaExteriorTemplo/ExteriorTemple.unity
     guid: d806ac9c073e01d4eb9f307c5c2547c6
   - enabled: 1
     path: Assets/Scenes/EscenaCallejon/CallejonScene.unity
     guid: f8dd4a6fc3c3ad34f95ba8a09b36c872
   - enabled: 1
-    path: Assets/Scenes/EscenaEdificioInterior/EDIFICIO INTERIOR.unity
-    guid: acf0ced1aea44bd46a1b102eca10d346
+    path: Assets/Scenes/EscenaCeldas/CeldasScene COPIA.unity
+    guid: 13453b89de2b5a145ad16b5300e50c46
   m_configObjects: {}
