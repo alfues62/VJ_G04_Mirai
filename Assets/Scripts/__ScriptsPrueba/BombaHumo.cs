@@ -4,53 +4,85 @@ using UnityEngine;
 
 public class BombaHumo : MonoBehaviour
 {
-    public float smokeForce = 20f;
-    public GameObject smokeBombPrefab;
-    public Transform spawnpoint;
-    public float smokeDamage = 5f;
-    public float smokeDuration = 5f;
-    public float smokeRadius = 5f;
-    public LayerMask enemyLayer;
+    public float delay = 3f;
+    public float radius = 5f;
+    public float Force = 20f;
+    public GameObject explosionEffect;
+    float countdown;
+    public bool hasExploded = false;
+    private Rigidbody playerRigidbody;
+    Vida vidaplayer;
+
+
+
+
+    private void Start()
+    {
+        vidaplayer = GetComponent<Vida>();
+        playerRigidbody = GetComponent<Rigidbody>();
+        countdown = delay;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        countdown -= Time.deltaTime;
+        if (countdown <= 0f)
         {
-            ThrowSmokeBomb();
+            Explode();
+            hasExploded = true;
+            LanzarGranadas lanzador = GameObject.FindObjectOfType<LanzarGranadas>();
+            lanzador.lanzar = false;
         }
     }
 
-    void ThrowSmokeBomb()
+    bool alreadyDamaged = false;
+
+    void Explode()
     {
-        GameObject smokeBomb = Instantiate(smokeBombPrefab, spawnpoint.position, Quaternion.identity);
-        Rigidbody rb = smokeBomb.GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * smokeForce;
+        Instantiate(explosionEffect, transform.position, transform.rotation);
 
-        StartCoroutine(DetonateSmokeBomb(smokeBomb));
-    }
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
-    IEnumerator DetonateSmokeBomb(GameObject smokeBomb)
-    {
-        yield return new WaitForSeconds(smokeDuration);
-
-        Collider[] colliders = Physics.OverlapSphere(smokeBomb.transform.position, smokeRadius, enemyLayer);
-        foreach (Collider col in colliders)
+        foreach (Collider nearbyObject in colliders)
         {
-            VidaEnemigos vida = col.GetComponent<VidaEnemigos>();
-            if (vida != null)
+            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            if (rb != null)
             {
-                vida.vida -= (Mathf.RoundToInt(smokeDamage));
+                rb.AddExplosionForce(Force, transform.position, radius);
+            }
 
+            if (nearbyObject.CompareTag("Player") && !alreadyDamaged)
+            {
+                float distanceToPlayer = Vector3.Distance(transform.position, nearbyObject.transform.position);
+                if (distanceToPlayer <= radius)
+                {
+                    Vida vidaJugador = nearbyObject.GetComponent<Vida>();
+                    vidaJugador.vida -= 20;
+                    alreadyDamaged = true;
+                }
             }
         }
 
-        Destroy(smokeBomb);
+
+
+        Destroy(gameObject);
     }
 
-    private void OnDrawGizmosSelected()
+    void OnTriggerEnter(Collider other)
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, smokeRadius);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            // Get the direction from the other object to this object
+            Vector3 pushDirection = transform.position - other.transform.position;
+
+            // Normalize the direction vector to make it a unit vector
+            pushDirection.Normalize();
+
+            // Apply the push to the player using the Rigidbody.AddForce method
+            playerRigidbody.AddForce(pushDirection * Force, ForceMode.Impulse);
+
+        }
     }
 }
+
 

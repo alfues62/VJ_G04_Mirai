@@ -11,12 +11,14 @@ public class Explosion : MonoBehaviour
     float countdown;
     public bool hasExploded = false;
     private Rigidbody playerRigidbody;
+    Vida vidaplayer;
 
 
 
 
     private void Start()
     {
+        vidaplayer = GetComponent<Vida>();
         playerRigidbody = GetComponent<Rigidbody>();
         countdown = delay;
     }
@@ -33,21 +35,35 @@ public class Explosion : MonoBehaviour
         }
     }
 
+    bool alreadyDamaged = false;
+
     void Explode()
     {
         Instantiate(explosionEffect, transform.position, transform.rotation);
 
-
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
-        foreach (Collider nearbyobject in colliders)
+        foreach (Collider nearbyObject in colliders)
         {
-            Rigidbody rb = nearbyobject.GetComponent<Rigidbody>();
+            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.AddExplosionForce(Force, transform.position, radius);
             }
+
+            if (nearbyObject.CompareTag("Player") && !alreadyDamaged)
+            {
+                float distanceToPlayer = Vector3.Distance(transform.position, nearbyObject.transform.position);
+                if (distanceToPlayer <= radius)
+                {
+                    Vida vidaJugador = nearbyObject.GetComponent<Vida>();
+                    vidaJugador.vida -= 20;
+                    alreadyDamaged = true;
+                }
+            }
         }
+
+
 
         Destroy(gameObject);
     }
@@ -64,7 +80,9 @@ public class Explosion : MonoBehaviour
 
             // Apply the push to the player using the Rigidbody.AddForce method
             playerRigidbody.AddForce(pushDirection * Force, ForceMode.Impulse);
+
         }
     }
 }
+
 
