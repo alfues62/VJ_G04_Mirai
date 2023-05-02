@@ -4,84 +4,80 @@ using UnityEngine;
 
 public class BombaHumo : MonoBehaviour
 {
-    public float delay = 3f;
-    public float radius = 5f;
-    public float Force = 20f;
-    public GameObject explosionEffect;
-    float countdown;
-    public bool hasExploded = false;
-    private Rigidbody playerRigidbody;
-    Vida vidaplayer;
-
-
-
-
-    private void Start()
-    {
-        vidaplayer = GetComponent<Vida>();
-        playerRigidbody = GetComponent<Rigidbody>();
-        countdown = delay;
-    }
+    public float smokeForce = 20f;
+    public GameObject smokeBombPrefab;
+    public Transform spawnpoint;
+    public float smokeDamage = 5f;
+    public float smokeDuration = 5f;
+    public float smokeRadius = 5f;
+    public LayerMask enemyLayer;
+    public GameObject smokeExplosionPrefab;
 
     private void Update()
     {
-        countdown -= Time.deltaTime;
-        if (countdown <= 0f)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            Explode();
-            hasExploded = true;
-            LanzarGranadas lanzador = GameObject.FindObjectOfType<LanzarGranadas>();
-            lanzador.lanzar = false;
+            ThrowSmokeBomb();
         }
     }
 
-    bool alreadyDamaged = false;
-
-    void Explode()
+    void ThrowSmokeBomb()
     {
-        Instantiate(explosionEffect, transform.position, transform.rotation);
+        GameObject smokeBomb = Instantiate(smokeBombPrefab, spawnpoint.position, spawnpoint.rotation);
+        Rigidbody rb = smokeBomb.GetComponent<Rigidbody>();
+        rb.AddForce(smokeBomb.transform.forward * smokeForce, ForceMode.VelocityChange);
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        StartCoroutine(DetonateSmokeBomb(smokeBomb));
+    }
 
-        foreach (Collider nearbyObject in colliders)
+    IEnumerator DetonateSmokeBomb(GameObject smokeBomb)
+    {
+        // Wait for explosion
+        yield return new WaitForSeconds(3f);
+
+        // Instantiate smoke explosion effect
+        GameObject smokeExplosion = Instantiate(smokeExplosionPrefab, smokeBomb.transform.position, Quaternion.identity);
+
+        // Loop for smoke duration
+        float timeElapsed = 0f;
+        while (timeElapsed < smokeDuration)
         {
-            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.AddExplosionForce(Force, transform.position, radius);
-            }
+            // Get all colliders within smoke radius
+            Collider[] colliders = Physics.OverlapSphere(smokeBomb.transform.position, smokeRadius, enemyLayer);
 
-            if (nearbyObject.CompareTag("Player") && !alreadyDamaged)
+            // Deal damage to each enemy within the radius
+            foreach (Collider col in colliders)
             {
-                float distanceToPlayer = Vector3.Distance(transform.position, nearbyObject.transform.position);
-                if (distanceToPlayer <= radius)
+                Vida vida = col.GetComponent<Vida>();
+                if (vida != null)
                 {
-                    Vida vidaJugador = nearbyObject.GetComponent<Vida>();
-                    vidaJugador.vida -= 20;
-                    alreadyDamaged = true;
+                    vida.vida -= (smokeDamage * Time.deltaTime);
+                }
+                VidaEnemigos vida2 = col.GetComponent<VidaEnemigos>();
+                if (vida != null)
+                {
+                    vida2.vida -= (smokeDamage * Time.deltaTime);
                 }
             }
+
+            // Wait for one frame
+            yield return null;
+
+            // Increment time elapsed
+            timeElapsed += Time.deltaTime;
         }
 
+        // Destroy smoke explosion effect
+        Destroy(smokeExplosion);
 
-
-        Destroy(gameObject);
+        // Destroy smoke bomb
+        Destroy(smokeBomb);
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnDrawGizmosSelected()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            // Get the direction from the other object to this object
-            Vector3 pushDirection = transform.position - other.transform.position;
-
-            // Normalize the direction vector to make it a unit vector
-            pushDirection.Normalize();
-
-            // Apply the push to the player using the Rigidbody.AddForce method
-            playerRigidbody.AddForce(pushDirection * Force, ForceMode.Impulse);
-
-        }
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, smokeRadius);
     }
 }
 

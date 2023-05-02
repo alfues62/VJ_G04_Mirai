@@ -15,6 +15,7 @@ public class DispararShuriken : MonoBehaviour
     public float shotForce = 1500;
     public float shotRate = 0.5f;
     public float bulletOffset = 0.5f;
+    public int municion;
 
     Vector3 adelantar = new Vector3(0, 0, 2);
 
@@ -35,49 +36,64 @@ public class DispararShuriken : MonoBehaviour
         }
     }
 
-    void Update()
-    
+    private void disparos()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Time.time > shotRateTime)
         {
-            if (Time.time > shotRateTime)
+            for (int i = 0; i < 3; i++)
             {
-                for (int i = 0; i < 3; i++)
+                string bulletTag = "PlayerBullet";
+                GameObject newBullet;
+
+                if (i == 0)
                 {
-                    string bulletTag = "PlayerBullet";
-                    GameObject newBullet;
-
-                    if (i == 0)
-                    {
-                        newBullet = Instantiate(bullets[i], spawnpoint.position + spawnpoint.forward * (i * bulletOffset), Quaternion.Euler(spawnpoint.rotation.eulerAngles));
-                        newBullet.tag = bulletTag;
-                        newBullet.GetComponent<Rigidbody>().AddForce(spawnpoint.forward * shotForce);
-
-                    }
-                    else if (i == 1)
-                    {
-                        newBullet = Instantiate(bullets[i], spawnpoint.position + spawnpoint.forward * (i * bulletOffset), Quaternion.Euler(spawnpoint.rotation.eulerAngles));
-                        newBullet.tag = bulletTag;
-                        newBullet.GetComponent<Rigidbody>().AddForce((spawnpoint.forward + spawnpoint.right * bulletOffset).normalized * shotForce);
-                    }
-                    else
-                    {
-                        newBullet = Instantiate(bullets[i], spawnpoint.position + spawnpoint.forward * (i * bulletOffset), Quaternion.Euler(spawnpoint.rotation.eulerAngles));
-                        newBullet.tag = bulletTag;
-                        newBullet.GetComponent<Rigidbody>().AddForce((spawnpoint.forward - spawnpoint.right * bulletOffset).normalized * shotForce);
-                    }
-
-                    newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * shotForce);
-
-
-               
+                    newBullet = Instantiate(bullets[i], spawnpoint.position + spawnpoint.forward * (i * bulletOffset), Quaternion.Euler(spawnpoint.rotation.eulerAngles));
+                    newBullet.tag = bulletTag;
+                    newBullet.GetComponent<Rigidbody>().AddForce(spawnpoint.forward * shotForce);
+                    municion--;
+                    Destroy(newBullet, 5f);
 
                 }
-                 
-                
+                else if (i == 1)
+                {
+                    newBullet = Instantiate(bullets[i], spawnpoint.position + spawnpoint.forward * (i * bulletOffset), Quaternion.Euler(spawnpoint.rotation.eulerAngles));
+                    newBullet.tag = bulletTag;
+                    newBullet.GetComponent<Rigidbody>().AddForce((spawnpoint.forward + spawnpoint.right * bulletOffset).normalized * shotForce);
+                    municion--;
+                    Destroy(newBullet, 5f);
+                }
+                else
+                {
+                    newBullet = Instantiate(bullets[i], spawnpoint.position + spawnpoint.forward * (i * bulletOffset), Quaternion.Euler(spawnpoint.rotation.eulerAngles));
+                    newBullet.tag = bulletTag;
+                    newBullet.GetComponent<Rigidbody>().AddForce((spawnpoint.forward - spawnpoint.right * bulletOffset).normalized * shotForce);
+                    municion--;
+                    Destroy(newBullet, 5f);
+                }
 
-                shotRateTime = Time.time + shotRate;
+                newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * shotForce);
+
+
+
+
             }
+
+
+            shotRateTime = Time.time + shotRate;
+        }
+    }
+
+    void Update()
+    {
+        
+        if(municion != 0)
+        {
+            if (Input.GetKeyDown(KeyCode.V))
+                disparos();
+        }
+        else
+        {
+
         }
     }
 

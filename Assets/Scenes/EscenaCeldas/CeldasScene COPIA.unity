@@ -1674,6 +1674,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324565911}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &349163069 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3427656971896913806, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
+  m_PrefabInstance: {fileID: 5386782221088783580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &366114011
 GameObject:
   m_ObjectHideFlags: 0
@@ -10777,6 +10782,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1505139970, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
+      propertyPath: spawnpoint
+      value: 
+      objectReference: {fileID: 349163069}
+    - target: {fileID: 1505139970, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
+      propertyPath: smokeBombPrefab
+      value: 
+      objectReference: {fileID: 2446619545665297122, guid: 590b551ec55dddd47876800ca0c2eda1, type: 3}
+    - target: {fileID: 1505139970, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505139970, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
+      propertyPath: smokeExplosionPrefab
+      value: 
+      objectReference: {fileID: 8714244275622671896, guid: abf8d5b763621654486813c5c8af8234, type: 3}
+    - target: {fileID: 1505139971, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
+      propertyPath: municion
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505139971, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
+      propertyPath: shotForce
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505139972, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
+      propertyPath: shotForce
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 1505139973, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
       propertyPath: CambiarMunicion
       value: 
@@ -10787,11 +10820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3427656970212936419, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0.06684345
+      value: -0.4969829
       objectReference: {fileID: 0}
     - target: {fileID: 3427656970212936419, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -5.863797
+      value: -5.51619
       objectReference: {fileID: 0}
     - target: {fileID: 3427656970725197658, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10859,11 +10892,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3427656970965494118, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0.06684345
+      value: -0.4969829
       objectReference: {fileID: 0}
     - target: {fileID: 3427656970965494118, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -5.863797
+      value: -5.51619
       objectReference: {fileID: 0}
     - target: {fileID: 3427656971195586939, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10903,19 +10936,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3427656971511950334, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.17872941
+      value: 0.17872943
       objectReference: {fileID: 0}
     - target: {fileID: 3427656971511950334, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0299469
+      value: -0.029946905
       objectReference: {fileID: 0}
     - target: {fileID: 3427656971727749906, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0.06684345
+      value: -0.4969829
       objectReference: {fileID: 0}
     - target: {fileID: 3427656971727749906, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -5.863797
+      value: -5.51619
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9da57718d03e1c45bf5ffe797f510a9, type: 3}

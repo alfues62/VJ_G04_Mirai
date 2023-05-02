@@ -17,8 +17,10 @@ public class AmmoDisplay : MonoBehaviour
 
     void Update()
     {
-        UpdateAmmoDisplay(ammoCount);
+        
     }
+
+
 
     public void UpdateAmmoDisplay(int muni)
     {

@@ -19,6 +19,7 @@ public class CambiarMunicion : MonoBehaviour
         dispararKunai = GetComponent<DispararKunai>();
         dispararShuriken = GetComponent<DispararShuriken>();
         lanzarFireball = GetComponent<LanzarFireball>();
+        ad = GetComponent<AmmoDisplay>();
 
     }
 
@@ -43,7 +44,7 @@ public class CambiarMunicion : MonoBehaviour
             lanzarFireball.enabled = false;
             // activar el nuevo script para cambiar la munición que se dispara
             dispararKunai.enabled = true;
-            ad.ammoCount = dispararKunai.balasRestantes;
+            ad.UpdateAmmoDisplay(dispararKunai.balasRestantes);
         }
         else if (Input.GetKeyDown(KeyCode.L)) // si se pulsa la tecla 'l'
         {
@@ -63,7 +64,7 @@ public class CambiarMunicion : MonoBehaviour
             bombaHumo.enabled = false;
             // activar el nuevo script para cambiar la munición que se dispara
             lanzarFireball.enabled = true;
-            ad.ammoCount = lanzarFireball.totalThrows;
+            ad.UpdateAmmoDisplay(lanzarFireball.totalThrows);
         }
     }
 }
