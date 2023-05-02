@@ -26,7 +26,7 @@ public class Explosion : MonoBehaviour
     private void Update()
     {
         countdown -= Time.deltaTime;
-        if (countdown <= 0f)
+        if (countdown <= 0f && !hasExploded)
         {
             Explode();
             hasExploded = true;

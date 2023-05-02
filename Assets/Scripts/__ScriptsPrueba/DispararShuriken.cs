@@ -21,6 +21,9 @@ public class DispararShuriken : MonoBehaviour
 
     private float shotRateTime;
 
+    public CambiarMunicion cm;
+    public AmmoDisplay ad;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -90,6 +93,11 @@ public class DispararShuriken : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.V))
                 disparos();
+
+            if(cm.shuriken == true)
+            {
+                ad.UpdateAmmoDisplay(municion);
+            }
         }
         else
         {

@@ -11,6 +11,7 @@ public class RecogerArmas : MonoBehaviour
     public BombaHumo BombaHumo;
     public AttackHandler DamagesMelee;
     public CambiarMunicion CambiarMunicion;
+    public AmmoDisplay AmmoDisplay;
     private int collectedObjectCount = 0;
 
 
@@ -21,6 +22,7 @@ public class RecogerArmas : MonoBehaviour
         BombaHumo.enabled = false;
         DamagesMelee.enabled = false;
         CambiarMunicion.enabled = false;
+        AmmoDisplay.enabled = false;
 
     }
 
@@ -47,6 +49,7 @@ public class RecogerArmas : MonoBehaviour
                 DispararKunai.enabled = true;
                 DamagesMelee.enabled = true;
                 CambiarMunicion.enabled = true;
+                AmmoDisplay.enabled = true;
             }
         }
     }

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EscenaCallejon/CallejonScene.unity
     guid: f8dd4a6fc3c3ad34f95ba8a09b36c872
+  - enabled: 1
+    path: Assets/__Pruebas/Albert/EscenaAlberto.unity
+    guid: 3769c3182f1c26b418ef76c32e2f22fb
   m_configObjects: {}

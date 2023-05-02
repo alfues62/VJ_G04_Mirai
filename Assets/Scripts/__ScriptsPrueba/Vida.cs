@@ -6,10 +6,25 @@ public class Vida : MonoBehaviour
 {
     public float vida = 100;
     public Image barraDeVida;
+    public Retry retry;
+
+    private void Start()
+    {
+        retry = GetComponent<Retry>();
+    }
     void Update()
     {
         vida = Mathf.Clamp(vida, 0, 100);
         barraDeVida.fillAmount = vida / 100;
+
+        if(vida == 0)
+        {
+            Destroy(gameObject);
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                retry.TaskOnClick();
+            }
+        }
 
      
     }

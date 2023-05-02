@@ -13,6 +13,11 @@ public class CambiarMunicion : MonoBehaviour
 
     public int ammo;
 
+    public bool shuriken;
+    public bool bombhum;
+    public bool kunai;
+    public bool bola;
+
     void Start()
     {
         bombaHumo = GetComponent<BombaHumo>();
@@ -33,6 +38,11 @@ public class CambiarMunicion : MonoBehaviour
             lanzarFireball.enabled = false;
             // activar el nuevo script para cambiar la munición que se dispara
             dispararShuriken.enabled = true;
+            ad.UpdateAmmoDisplay(dispararShuriken.municion);
+            shuriken = true;
+            bombhum = false;
+            kunai = false;
+            bola = false;
 
 
         }
@@ -45,6 +55,10 @@ public class CambiarMunicion : MonoBehaviour
             // activar el nuevo script para cambiar la munición que se dispara
             dispararKunai.enabled = true;
             ad.UpdateAmmoDisplay(dispararKunai.balasRestantes);
+            shuriken = false;
+            bombhum = false;
+            kunai = true;
+            bola = false;
         }
         else if (Input.GetKeyDown(KeyCode.L)) // si se pulsa la tecla 'l'
         {
@@ -54,6 +68,11 @@ public class CambiarMunicion : MonoBehaviour
             lanzarFireball.enabled = false;
             // activar el nuevo script para cambiar la munición que se dispara
             bombaHumo.enabled = true;
+            ad.UpdateAmmoDisplay(bombaHumo.muni);
+            shuriken = false;
+            bombhum = true;
+            kunai = false;
+            bola = false;
 
         }
         else if (Input.GetKeyDown(KeyCode.K)) // si se pulsa la tecla 'k'
@@ -65,6 +84,10 @@ public class CambiarMunicion : MonoBehaviour
             // activar el nuevo script para cambiar la munición que se dispara
             lanzarFireball.enabled = true;
             ad.UpdateAmmoDisplay(lanzarFireball.totalThrows);
+            shuriken = false;
+            bombhum = false;
+            kunai = false;
+            bola = true;
         }
     }
 }

@@ -13,11 +13,22 @@ public class BombaHumo : MonoBehaviour
     public LayerMask enemyLayer;
     public GameObject smokeExplosionPrefab;
 
+    public int muni;
+
+    public CambiarMunicion cm;
+    public AmmoDisplay ad;
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && muni > 0)
         {
             ThrowSmokeBomb();
+            muni--;
+
+            if(cm.bombhum == true)
+            {
+                ad.UpdateAmmoDisplay(muni);
+            }
         }
     }
 

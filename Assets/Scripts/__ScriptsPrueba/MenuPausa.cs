@@ -40,11 +40,11 @@ public class MenuPausa : MonoBehaviour
         PauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
         Paused = false;
-    }
+   }
 
     public void MainMenuButton()
     {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(0);
     }
 }

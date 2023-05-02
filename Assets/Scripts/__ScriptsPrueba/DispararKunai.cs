@@ -12,7 +12,10 @@ public class DispararKunai : MonoBehaviour
 
     private float shotRateTime;
     public int balasRestantes = 10;
-    
+
+    public CambiarMunicion cm;
+    public AmmoDisplay ad;
+
 
     void Start()
     {
@@ -31,6 +34,11 @@ public class DispararKunai : MonoBehaviour
                 shotRateTime = Time.time + shotRate;
                 Destroy(newBullet, 2);
                 balasRestantes--;
+
+                if(cm.kunai == true)
+                {
+                    ad.UpdateAmmoDisplay(balasRestantes);
+                }
             }
         }
     }
