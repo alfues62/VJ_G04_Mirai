@@ -9,6 +9,9 @@ public class LanzarFireball : MonoBehaviour
     public Transform attackPoint;
     public GameObject objectToThrow;
 
+    public CambiarMunicion cm;
+    public AmmoDisplay ad;
+
     [Header("Settings")]
     public int totalThrows;
     public float throwCooldown;
@@ -30,6 +33,11 @@ public class LanzarFireball : MonoBehaviour
         if (Input.GetKeyDown(throwKey) && readyToThrow && totalThrows > 0)
         {
             Throw();
+
+            if(cm.bola == true)
+            {
+                ad.UpdateAmmoDisplay(totalThrows);
+            }
         }
     }
 
@@ -50,6 +58,7 @@ public class LanzarFireball : MonoBehaviour
 
         if (Physics.Raycast(cam.position, cam.forward, out hit, 500f))
         {
+            // update the direction to the hit point
             forceDirection = (hit.point - attackPoint.position).normalized;
         }
 

@@ -10,7 +10,7 @@ public class DamagesMelee : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemigo"))
         {
             VidaEnemigos vidaEnemigo = other.GetComponent<VidaEnemigos>();
             if (vidaEnemigo != null)

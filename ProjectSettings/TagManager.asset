@@ -4,11 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - PlayerBullet
-  - Espada
   - EnemyBullet
   - Key
+  - Espada
+  - Enemy
+  - Enemigo
+  - Collectible
+  - Especial
   layers:
   - Default
   - TransparentFX
@@ -16,9 +19,9 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
   - Ground
   - 
-  - Player
   - 
   - 
   - 
