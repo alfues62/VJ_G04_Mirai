@@ -16,6 +16,10 @@ public class DispararKunai : MonoBehaviour
     public CambiarMunicion cm;
     public AmmoDisplay ad;
 
+    public lockOn lok;
+
+    public GameObject obetivo;
+
 
     void Start()
     {
@@ -24,7 +28,8 @@ public class DispararKunai : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+
+        if (Input.GetKeyDown(KeyCode.V))
         {
             if (Time.time > shotRateTime && balasRestantes > 0)
             {
@@ -39,6 +44,24 @@ public class DispararKunai : MonoBehaviour
                 {
                     ad.UpdateAmmoDisplay(balasRestantes);
                 }
+            }
+        }
+        else if(lok.isTargeting == true && Input.GetKeyDown(KeyCode.V))
+        {
+            Debug.Log("isTargeting: " + lok.isTargeting + ", target: " + lok.target);
+
+            obetivo = lok.target;
+            GameObject newBullet;
+            newBullet = Instantiate(bullet, spawnpoint.position, spawnpoint.rotation);
+            Vector3 direction = (obetivo.transform.position - transform.position).normalized;
+            newBullet.GetComponent<Rigidbody>().AddForce(direction * shotForce, ForceMode.Force);
+            shotRateTime = Time.time + shotRate;
+            Destroy(newBullet, 2);
+            balasRestantes--;
+
+            if (cm.kunai == true)
+            {
+                ad.UpdateAmmoDisplay(balasRestantes);
             }
         }
     }

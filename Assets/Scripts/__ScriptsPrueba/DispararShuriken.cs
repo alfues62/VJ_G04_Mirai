@@ -24,20 +24,22 @@ public class DispararShuriken : MonoBehaviour
     public CambiarMunicion cm;
     public AmmoDisplay ad;
 
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!hasCollided)
-        {
-            hasCollided = true;
-            rb.useGravity = true;
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (!hasCollided)
+    //    {
+    //        hasCollided = true;
+    //        rb.useGravity = true;
+    //    }
+    //}
 
     private void disparos()
     {
